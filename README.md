@@ -2,18 +2,18 @@
 #### by Jess Schueler
 
 ### *An Apache Airflow example DAG*
----
+
 ## Technologies Used
 * Python
 * Apache Airflow
 * Bash
----
+
 ## Description
 
 An Apache Airflow DAG that uses Bash to create a text file, reads and prints that file with Python, creates three simultaneous tasks by making random selections from a list, and ensures everything ran by finishing with an empty operator.
 
 ![image showing graphview of dag](img/graphview.png)
----
+
 ## Setup/Installation Requirements
 * In the terminal, clone github repository using the following command;
     ```
@@ -29,10 +29,10 @@ An Apache Airflow DAG that uses Bash to create a text file, reads and prints tha
     docker-compose up airflow-init
     ```
 * Run the DAG in the Airflow GUI from http://localhost:8080
----
+
 ## Known Bugs
 * None at this time
----
+
 ## License
 MIT
 
