@@ -14,7 +14,7 @@ Two Apache Airflow DAGs. The first uses Bash to create a text file, reads and pr
 
 ![image showing graphview of code review dag](img/graphview.png)
 
-The second uses decorators to establish our DAG and our Python operators. It utilizes Xcoms to pass return values along the DAG, using basic comparison operators to print whether there was enough rain to grow apples, or if we'll have 'better luck next year!'
+The second uses decorators to establish our DAG and our Python operators. It utilizes Xcoms to pass return values along the DAG, using basic comparisons to print whether there was enough rain to grow apples, or if we'll have 'better luck next year!'
 
 ![image showing graphview of apple tree dag](img/graphviewtree.png)
 
