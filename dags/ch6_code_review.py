@@ -1,6 +1,7 @@
 import time
 import random
 import os
+import re
 from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
@@ -19,11 +20,15 @@ def print_hello():
     with open(f"{dir_name}/ch6_code_review.txt", 'r') as txt:
         print(f'Howdy, {txt.read()}!')
 
-def pick_apple():
+def pick_apple(apple: str):
     """
     Selects a random choice from our APPLES list
     """
-    print(random.choice(APPLES))
+    vowel = re.search('^[aeiou]', apple)
+    if vowel:
+        print(f"Yum! An {apple}")
+    else:
+        print(f"Yum! A {apple}")
 
 #establish our default args
 default_args = {
@@ -57,10 +62,12 @@ with DAG(
     apple_tasks = []
     #range(1,4) so our tasks are labeled 1,2 and 3
     for i in range(1,4):
+        apple_choice = random.choice(APPLES)
         task= PythonOperator(
         #name our tasks
         task_id=f'apple_{i}',
         python_callable=pick_apple,
+        op_kwargs={'apple': apple_choice}
     )
         apple_tasks.append(task)
     #finish our DAG with an empty operator to ensure all previous tasks have run
